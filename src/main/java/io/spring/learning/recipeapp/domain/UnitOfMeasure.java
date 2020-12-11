@@ -11,23 +11,22 @@ public class UnitOfMeasure {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String uom;
+    private String description;
 
-    private Ingredient ingredient;
-
-    public String getUom() {
-        return uom;
+    public Long getId() {
+        return id;
     }
 
-    public void setUom(String uom) {
-        this.uom = uom;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Ingredient getIngredient() {
-        return ingredient;
+    public String getDescription() {
+        return description;
     }
 
-    public void setIngredient(Ingredient ingredient) {
-        this.ingredient = ingredient;
+    public void setDescription(String description) {
+        this.description = description;
     }
+
 }
