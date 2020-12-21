@@ -11,16 +11,19 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Lob
     private String description;
     private Integer preTime;
     private Integer cookTime;
     private Integer serving;
     private String source;
     private String url;
+
+    @Lob
     private String directions;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "recipe")
-    private Set<Ingredient> ingredients;
+    private Set<Ingredient> ingredients = new HashSet<>();
 
     @Lob
     private Byte[] image;
@@ -42,6 +45,30 @@ public class Recipe {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getPreTime() {
+        return preTime;
+    }
+
+    public void setPreTime(Integer preTime) {
+        this.preTime = preTime;
+    }
+
+    public Integer getCookTime() {
+        return cookTime;
+    }
+
+    public void setCookTime(Integer cookTime) {
+        this.cookTime = cookTime;
+    }
+
+    public Integer getServing() {
+        return serving;
+    }
+
+    public void setServing(Integer serving) {
+        this.serving = serving;
     }
 
     public String getDescription() {
@@ -108,7 +135,15 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+        notes.setRecipe(this);
     }
+
+    public Recipe addIngredient(Ingredient ingredient){
+        ingredient.setRecipe(this);
+        this.ingredients.add(ingredient);
+        return this;
+    }
+
 
     public Set<Category> getCategories() {
         return categories;
