@@ -8,10 +8,12 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
+import static org.springframework.test.util.AssertionErrors.assertNotNull;
 
 class RecipeServiceImplTest {
     RecipeServiceImpl recipeService;
@@ -27,16 +29,32 @@ class RecipeServiceImplTest {
     }
 
     @Test
-    void getRecipe() {
+    void getRecipeByIdTest() {
         Recipe recipe = new Recipe();
-        HashSet receipesData = new HashSet();
-        receipesData.add(recipe);
+        recipe.setId(1L);
+        Optional<Recipe> recipeOptional = Optional.of(recipe);
 
-        when(recipeService.getRecipe()).thenReturn(receipesData);
+        when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
 
-        Set<Recipe> recipes = recipeService.getRecipe();
+        Recipe recipeReturned = recipeService.findById(1L);
 
-        assertEquals(recipes.size(), 1);
-        verify(recipeRepository, times(1)).findAll();
+        assertNotNull("Null recipe returned", recipeReturned);
+        verify(recipeRepository, times(1)).findById(anyLong());
+        verify(recipeRepository, never()).findAll();
     }
+
+   @Test
+    void getRecipeTest(){
+        Recipe recipe = new Recipe();
+        HashSet recipeData = new HashSet();
+        recipeData.add(recipe);
+
+        when(recipeService.getRecipe()).thenReturn(recipeData);
+        Set<Recipe> recipes = recipeService.getRecipe();
+        assertEquals(recipes.size(),1);
+        verify(recipeRepository,times(1)).findAll();
+        verify(recipeRepository,never()).findById(anyLong());
+   }
+
+
 }
