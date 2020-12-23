@@ -116,7 +116,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         //Guac
         Recipe guacRecipe = new Recipe();
         guacRecipe.setDescription("Perfect Guacamole");
-        guacRecipe.setPreTime(10);
+        guacRecipe.setPrepTime(10);
         guacRecipe.setCookTime(0);
         guacRecipe.setDifficulty(Difficulty.EASY);
         guacRecipe.setDirections("1 Cut the avocado, remove flesh: Cut the avocados in half. Remove the pit. Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon. (See How to Cut and Peel an Avocado.) Place in a bowl."+"\n"+
@@ -147,7 +147,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         guacRecipe.getCategories().add(mexicanCategory);
 
         guacRecipe.setUrl("https://www.onceuponachef.com/images/2010/05/Roasted-Garlic-Guacamole.jpg");
-        guacRecipe.setServing(3);
+        guacRecipe.setServings(3);
         guacRecipe.setSource("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
 
         // add to return list
@@ -158,7 +158,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         Recipe lasagnaRecipe = new Recipe();
         lasagnaRecipe.setDescription("Vegetarian Spinach and Mushroom Lasagna");
         lasagnaRecipe.setCookTime(115);
-        lasagnaRecipe.setPreTime(20);
+        lasagnaRecipe.setPrepTime(20);
         lasagnaRecipe.setDifficulty(Difficulty.MODERATE);
         lasagnaRecipe.setDirections("1 Sauté the mushrooms: Place mushrooms in a large (6 to 8 quart) sauté pan on high or medium high heat. Stir them with a wooden spoon or shake the pan from time to time. You may hear them squeak.\n" +
                 "\n" +
@@ -216,7 +216,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         lasagnaRecipe.getCategories().add(americanCategory);
         lasagnaRecipe.getCategories().add(mexicanCategory);
         lasagnaRecipe.setUrl("https://www.simplyrecipes.com/wp-content/uploads/2012/11/Vegetarian-Lasagna-LEAD-3.jpg");
-        lasagnaRecipe.setServing(5);
+        lasagnaRecipe.setServings(5);
         lasagnaRecipe.setSource("https://www.simplyrecipes.com/recipes/vegetarian_spinach_and_mushroom_lasagna/");
 
         recipes.add(lasagnaRecipe);

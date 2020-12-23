@@ -1,5 +1,7 @@
 package io.spring.learning.recipeapp.services;
 
+import io.spring.learning.recipeapp.converters.RecipeCommandToRecipe;
+import io.spring.learning.recipeapp.converters.RecipeToRecipeCommand;
 import io.spring.learning.recipeapp.domain.Recipe;
 import io.spring.learning.recipeapp.repositories.RecipeRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,11 +23,16 @@ class RecipeServiceImplTest {
     @Mock
     RecipeRepository recipeRepository;
 
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
+
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
 
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
     }
 
     @Test
