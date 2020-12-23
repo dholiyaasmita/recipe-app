@@ -146,6 +146,10 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         guacRecipe.getCategories().add(americanCategory);
         guacRecipe.getCategories().add(mexicanCategory);
 
+        guacRecipe.setUrl("https://www.onceuponachef.com/images/2010/05/Roasted-Garlic-Guacamole.jpg");
+        guacRecipe.setServing(3);
+        guacRecipe.setSource("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
+
         // add to return list
         recipes.add(guacRecipe);
 
@@ -211,6 +215,10 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
         lasagnaRecipe.getCategories().add(americanCategory);
         lasagnaRecipe.getCategories().add(mexicanCategory);
+        lasagnaRecipe.setUrl("https://www.simplyrecipes.com/wp-content/uploads/2012/11/Vegetarian-Lasagna-LEAD-3.jpg");
+        lasagnaRecipe.setServing(5);
+        lasagnaRecipe.setSource("https://www.simplyrecipes.com/recipes/vegetarian_spinach_and_mushroom_lasagna/");
+
         recipes.add(lasagnaRecipe);
 
         return recipes;
